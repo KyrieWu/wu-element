@@ -7,7 +7,7 @@ export type FormData = {
 }
 
 export type FormItem = {
-    vaildate: () => Promise<Values>
+    validate: () => Promise<Values>
 }
 
 export type FormType = {
