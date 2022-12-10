@@ -1,34 +1,28 @@
 <template>
-  <el-container>
-    <el-header>Header</el-header>
-    <el-main>Main</el-main>
-    <el-footer>Footer</el-footer>
-  </el-container>
-  <hr />
-  <el-container>
-    <el-header>Header</el-header>
-    <el-container>
-      <el-aside width="200px">Aside</el-aside>
-      <el-main>Main</el-main>
-    </el-container>
-  </el-container>
-  <hr />
-  <el-container>
-    <el-aside width="200px">Aside</el-aside>
-    <el-container>
-      <el-header>Header</el-header>
-      <el-main>Main</el-main>
-      <el-footer>Footer</el-footer>
-    </el-container>
-  </el-container>
-  <hr />
-  <el-button type="primary" size="large"> 按钮 </el-button>
-  <el-button type="success" size="small"> 按钮 </el-button>
-  <el-button>按钮</el-button>
-  <el-button size="small"> 按钮 </el-button>
+  <el-form :label-position="labelPosition" label-width="100px" :model="formLabelAlign" style="max-width: 460px">
+    <el-form-item label="Name">
+      <el-input v-model="formLabelAlign.name" />
+    </el-form-item>
+    <el-form-item label="Activity zone">
+      <el-input v-model="formLabelAlign.region" />
+    </el-form-item>
+    <el-form-item label="Activity form">
+      <el-input v-model="formLabelAlign.type" />
+    </el-form-item>
+  </el-form>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { reactive, ref } from 'vue'
+
+const labelPosition = ref('right')
+
+const formLabelAlign = reactive({
+  name: '',
+  region: '',
+  type: '',
+})
+</script>
 
 <style scoped lang="scss">
 body {

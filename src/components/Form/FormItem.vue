@@ -8,7 +8,7 @@
 
 <script lang="ts">
 export default {
-  name: 'ElFormItm'
+  name: 'ElFormItem'
 }
 </script>
 <script setup lang="ts">
@@ -64,7 +64,7 @@ function validate() {
 <style lang="scss">
 @import '../../styles/minin.scss';
 
-@include b(form, item) {
+@include b(form-item) {
   margin-bottom: 22px;
 
   label {

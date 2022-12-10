@@ -32,7 +32,7 @@ emitter.on('addFormItem', (item) => {
 })
 
 function validate(cb: (isVaild: boolean) => void) {
-  const tasks = items.value.map(item => item.vaildate())
+  const tasks = items.value.map(item => item.validate())
   Promise.all(tasks)
     .then(() => { cb(true) })
     .catch(() => { cb(false) })
