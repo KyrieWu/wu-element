@@ -1,32 +1,29 @@
 <template>
-  <el-form :label-position="labelPosition" label-width="100px" :model="formLabelAlign" style="max-width: 460px">
-    <el-form-item label="Name">
-      <el-input v-model="formLabelAlign.name" />
-    </el-form-item>
-    <el-form-item label="Activity zone">
-      <el-input v-model="formLabelAlign.region" />
-    </el-form-item>
-    <el-form-item label="Activity form">
-      <el-input v-model="formLabelAlign.type" />
-    </el-form-item>
-  </el-form>
+  <el-button text @click="centerDialogVisible = true">
+    Click to open the Dialog
+  </el-button>
+
+  <el-dialog :appendToBody="centerDialogVisible">
+    <span>Open the dialog from the center from the screen</span>
+    <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="centerDialogVisible = false">Cancel</el-button>
+        <el-button type="primary" @click="centerDialogVisible = false">
+          Confirm
+        </el-button>
+      </span>
+    </template>
+  </el-dialog>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 
-const labelPosition = ref('right')
-
-const formLabelAlign = reactive({
-  name: '',
-  region: '',
-  type: '',
-})
+const centerDialogVisible = ref(false)
 </script>
 
 <style scoped lang="scss">
-body {
-  width: 1000px;
-  margin: 10px auto;
+.dialog-footer button:first-child {
+  margin-right: 10px;
 }
 </style>
